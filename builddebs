@@ -1,0 +1,24 @@
+#!/bin/bash
+
+rm -rf build
+mkdir build
+cd build
+
+. /etc/lsb-release	
+
+git clone https://github.com/falkTX/qtsixa.git
+
+# build
+pushd qtsixa
+make
+
+# install to debian directory
+make DESTDIR=`pwd`/../../root/ install
+popd
+cd ..
+
+# remove unnecessary build files
+rm -rf build
+
+chmod a+x debian/rules
+dpkg-buildpackage -rfakeroot -uc -b

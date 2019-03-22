@@ -1,0 +1,13 @@
+Source: unr-sixad
+Section: config
+Priority: extra
+Maintainer: David Feil-Seifer <dave@cse.unr.edu>
+Build-Depends: debhelper (>= 9), pyqt4-dev-tools, libusb-dev, libjack-jackd2-dev, libbluetooth-dev, python-dbus, git
+Standards-Version: 3.7.2
+
+Package: unr-sixad
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, pyqt4-dev-tools, libusb-dev, libjack-jackd2-dev, libbluetooth-dev, python-dbus
+Description: Builds the sixad package for use on the pr2
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}
